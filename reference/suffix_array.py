@@ -2,7 +2,7 @@ from __future__ import print_function
 import pprint
 
 
-class ArrayGenerator:
+class ArrayGenerator(object):
     def __init__(self):
         "Handle transformation operations on sequence strings"
 
@@ -11,6 +11,9 @@ class ArrayGenerator:
         Generate all suffixes from a given string
         """
         # Add a terminator sigil to the string
+        if (sequence is None):
+            raise "No sequence provided to generate suffixes"
+
         sequence = sequence + "$"
         # Pre-allocate matrix
         matrix = [[None] * (len(sequence) + 1) for i in range(len(sequence))]
